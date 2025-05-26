@@ -49,7 +49,7 @@
         };
       };
       font = {
-        size = 18;
+        size = 24;
         normal = {
           family = "JetBrains Mono";
           style = "ExtraLight";
