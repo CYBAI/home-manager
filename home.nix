@@ -26,7 +26,7 @@
   programs.zellij = {
     enable = true;
     settings = {
-      default_shell = "zsh";
+      default_shell = "fish";
       simplified_ui = true;
       pane_frames = false;
       scroll_buffer_size = 10000;
@@ -67,6 +67,13 @@
   };
 
   programs.bash.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = builtins.readFile ./config/fish/config.fish;
+    functions = {
+      fish_user_key_bindings = "fish_vi_key_bindings";
+    };
+  };
   programs.zsh = {
     enable = true;
 
