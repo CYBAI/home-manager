@@ -12,7 +12,6 @@
     jq
     btop
     mise
-    tmux
     direnv
 
     # editors

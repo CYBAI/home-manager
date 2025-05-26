@@ -23,6 +23,17 @@
     extraConfig = builtins.readFile ./config/inputrc;
   };
 
+  programs.zellij = {
+    enable = true;
+    settings = {
+      default_shell = "zsh";
+      simplified_ui = true;
+      pane_frames = false;
+      scroll_buffer_size = 10000;
+      theme = "catppuccin-latte";
+    };
+  };
+
   programs.tmux.mouse = true;
 
   programs.alacritty = {
