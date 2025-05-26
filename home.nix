@@ -28,6 +28,8 @@
   programs.alacritty = {
     enable = true;
 
+    theme = "catppuccin_frappe";
+
     settings = {
       cursor = {
         style = {
