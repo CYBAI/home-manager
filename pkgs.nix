@@ -15,7 +15,6 @@
     direnv
 
     # editors
-    vim
     vscode
 
     # fonts

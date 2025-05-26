@@ -3,6 +3,7 @@
 {
   imports = [
     ./pkgs.nix
+    ./vim.nix
     ./git.nix
   ];
 
