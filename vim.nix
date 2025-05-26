@@ -4,6 +4,10 @@
   programs.vim = {
     enable = true;
 
+    plugins = with pkgs.vimPlugins; [
+      nerdtree
+    ];
+
     settings = {
       number = true;
       tabstop = 2;
