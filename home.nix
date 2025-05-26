@@ -18,6 +18,11 @@
     ll = "ls -lhgF --git";
   };
 
+  programs.readline = {
+    enable = true;
+    extraConfig = builtins.readFile ./config/inputrc;
+  };
+
   programs.tmux.mouse = true;
 
   programs.alacritty = {
@@ -48,12 +53,14 @@
     };
   };
 
+  programs.bash.enable = true;
   programs.zsh = {
     enable = true;
 
     completionInit = "autoload -U compinit && compinit -u";
     defaultKeymap = "emacs";
     dotDir = ".config/zsh";
+
     envExtra = ''
       export NIX_PATH=$HOME/.nix-defexpr/channels
 
@@ -61,14 +68,21 @@
         . ~/.nix-profile/etc/profile.d/nix.sh
       fi
     '';
+
     history = {
       extended = true;
       path = "${config.xdg.dataHome}/zsh/.zsh_history";
       save = 1000000;
       size = 1000000;
     };
-    syntaxHighlighting = {
+
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+
+    oh-my-zsh = {
       enable = true;
+      plugins = [ ];
+      theme = "lambda";
     };
   };
 
