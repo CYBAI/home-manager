@@ -35,8 +35,6 @@
     };
   };
 
-  programs.tmux.mouse = true;
-
   programs.alacritty = {
     enable = true;
 
