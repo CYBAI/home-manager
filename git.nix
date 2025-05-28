@@ -6,8 +6,12 @@
 
     aliases = {
       s = "status -s";
+      sc = "switch -c";
       cm = "commit -m";
+      co = "checkout";
       can = "commit --amend --no-edit";
+      df = "diff";
+      dfg = "diff --staged";
       show-graph = "log --graph --abbrev-commit --pretty=oneline";
     };
 
