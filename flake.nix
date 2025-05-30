@@ -1,43 +1,47 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, home-manager, nixpkgs }:
-    let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      apps.${system} =
-      let
-        switch = pkgs.writeShellScript "build.sh" ''
-          home-manager switch --flake . --impure
-        '';
-      in
-      {
-        switch = {
-          type = "app";
-          program = "${switch}";
+  outputs =
+    inputs@{
+      self,
+      home-manager,
+      nix-darwin,
+      flake-parts,
+      ...
+    }:
+    
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      flake = {
+        darwinConfigurations.cybai = nix-darwin.lib.darwinSystem {
+          modules = [ ./darwin.nix ];
         };
       };
-      devShells.${system}.default = pkgs.mkShell {
-        buildInputs = [
-          home-manager.packages.${system}.default
-        ];
-      };
-      hmModule.${system} = import ./home.nix;
-      homeConfigurations."cybai" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
 
-        modules = [ ./home.nix ];
-      };
-      legacyPackages.${system} = pkgs;
-      lib = {
-        inherit (home-manager.lib) homeManagerConfiguration;
-      };
+      systems = [ "aarch64-darwin" ];
+
+      perSystem =
+        {
+          pkgs,
+          lib,
+          ...
+        }:
+        {
+          legacyPackages.homeConfigurations.cybai = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+
+            modules = [ ./home.nix ];
+          };
+        };
     };
 }
