@@ -13,8 +13,5 @@
     btop
     mise
     direnv
-
-    # fonts
-    nerd-fonts.jetbrains-mono
   ];
 }
