@@ -14,9 +14,6 @@
     mise
     direnv
 
-    # editors
-    vscode
-
     # fonts
     nerd-fonts.jetbrains-mono
   ];

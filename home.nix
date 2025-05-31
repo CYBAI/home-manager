@@ -7,9 +7,6 @@
     ./git.nix
   ];
 
-  # In order to install VSCode via Home Manager, enabling `allowUnfree` is required.
-  nixpkgs.config.allowUnfree = true;
-
   home.username = "cybai";
   home.homeDirectory = "/Users/${config.home.username}";
   home.shellAliases = {
