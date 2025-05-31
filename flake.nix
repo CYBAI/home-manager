@@ -10,6 +10,7 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
@@ -20,8 +21,12 @@
       flake-parts,
       ...
     }:
-    
+
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.treefmt-nix.flakeModule
+      ];
+
       flake = {
         darwinConfigurations.cybai = nix-darwin.lib.darwinSystem {
           modules = [ ./darwin.nix ];
@@ -41,6 +46,17 @@
             inherit pkgs;
 
             modules = [ ./home.nix ];
+          };
+
+          # This enables `nix fmt`.
+          treefmt = {
+            projectRootFile = "flake.nix";
+            programs = {
+              fish_indent.enable = true;
+              nixfmt.enable = true;
+              shfmt.enable = true;
+              stylua.enable = true;
+            };
           };
         };
     };
