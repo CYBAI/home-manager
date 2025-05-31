@@ -31,9 +31,9 @@
 
       flake = {
         darwinConfigurations.cybai = nix-darwin.lib.darwinSystem {
-          modules = [ 
+          modules = [
             nix-homebrew.darwinModules.nix-homebrew
-            ./darwin.nix 
+            ./darwin.nix
           ];
         };
       };
