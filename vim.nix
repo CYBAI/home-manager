@@ -23,6 +23,6 @@
       set hls
 
       set backspace=indent,eol,start
-   '';
+    '';
   };
 }
