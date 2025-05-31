@@ -18,10 +18,16 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  nix-homebrew = {
+    enable = true;
+    enableRosetta = true;
+
+    user = "cybai";
+  };
+
   homebrew = {
     enable = true;
     user = "cybai";
-
     casks = [
       # Editors
       "visual-studio-code"

@@ -6,6 +6,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +18,7 @@
     inputs@{
       self,
       home-manager,
+      nix-homebrew,
       nix-darwin,
       flake-parts,
       ...
@@ -29,7 +31,10 @@
 
       flake = {
         darwinConfigurations.cybai = nix-darwin.lib.darwinSystem {
-          modules = [ ./darwin.nix ];
+          modules = [ 
+            nix-homebrew.darwinModules.nix-homebrew
+            ./darwin.nix 
+          ];
         };
       };
 

@@ -69,9 +69,6 @@
     functions = {
       fish_user_key_bindings = "fish_vi_key_bindings";
     };
-    shellInit = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    '';
   };
   programs.zsh = {
     enable = true;
@@ -86,10 +83,6 @@
       if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
         . ~/.nix-profile/etc/profile.d/nix.sh
       fi
-    '';
-
-    initContent = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
 
     history = {
