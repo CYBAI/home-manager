@@ -7,7 +7,7 @@
     ./git.nix
   ];
 
-  home.username = "cybai";
+  home.username = builtins.getEnv "USER";
   home.homeDirectory = "/Users/${config.home.username}";
   home.shellAliases = {
     cat = "bat";
