@@ -28,6 +28,9 @@
   homebrew = {
     enable = true;
     user = "cybai";
+    brews = [
+      "mise"
+    ];
     casks = [
       # Editors
       "visual-studio-code"

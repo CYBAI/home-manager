@@ -11,7 +11,6 @@
     gh
     jq
     btop
-    mise
     direnv
   ];
 }
