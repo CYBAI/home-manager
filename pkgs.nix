@@ -12,5 +12,7 @@
     jq
     btop
     direnv
+
+    rustup
   ];
 }
