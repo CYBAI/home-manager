@@ -31,4 +31,3 @@ Control-l: clear-screen
 
 # required for insert normal 'p'
 "p": self-insert
-
