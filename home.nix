@@ -75,7 +75,6 @@
 
     completionInit = "autoload -U compinit && compinit -u";
     defaultKeymap = "emacs";
-    dotDir = ".config/zsh";
 
     envExtra = ''
       export NIX_PATH=$HOME/.nix-defexpr/channels
