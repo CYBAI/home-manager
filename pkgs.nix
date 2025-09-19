@@ -14,6 +14,8 @@
     direnv
 
     rustup
-    lean4
+
+    # Lean
+    elan
   ];
 }
