@@ -35,7 +35,6 @@
       # Editors
       "visual-studio-code"
 
-      "google-cloud-sdk"
       "font-jetbrains-mono"
     ];
   };
