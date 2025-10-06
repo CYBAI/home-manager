@@ -30,7 +30,7 @@
       ];
 
       flake = {
-        darwinConfigurations.cybai = nix-darwin.lib.darwinSystem {
+        darwinConfigurations.${builtins.getEnv "HOSTNAME"} = nix-darwin.lib.darwinSystem {
           modules = [
             nix-homebrew.darwinModules.nix-homebrew
             ./darwin.nix
