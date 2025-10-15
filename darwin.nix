@@ -1,6 +1,6 @@
 {
   system.stateVersion = 6;
-  system.primaryUser = builtins.getEnv "USER";
+  system.primaryUser = "cybai";
 
   nix.enable = false;
   nix.settings = {
@@ -40,4 +40,23 @@
   };
 
   ids.gids.nixbld = 30000;
+
+  system.defaults = {
+    finder = {
+      ShowPathbar = true;
+      ShowStatusBar = true;
+      QuitMenuItem = true;
+    };
+    dock = {
+      autohide = true;
+      largesize = 92;
+      magnification = false;
+      show-recents = false;
+    };
+    trackpad = {
+      Clicking = true;
+      Dragging = true;
+      TrackpadThreeFingerDrag = true;
+    };
+  };
 }
