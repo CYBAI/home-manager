@@ -13,6 +13,10 @@
     btop
     direnv
 
+    # Python
+    uv
+
+    # Rust
     rustup
 
     # Lean
