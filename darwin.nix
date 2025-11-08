@@ -30,6 +30,7 @@
     user = "cybai";
     brews = [
       "mise"
+      "yt-dlp"
     ];
     casks = [
       # Editors

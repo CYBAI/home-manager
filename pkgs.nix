@@ -13,6 +13,9 @@
     btop
     direnv
 
+    # required by yt-dlp
+    ffmpeg-full
+
     # Python
     uv
 
