@@ -37,6 +37,8 @@
       "visual-studio-code"
 
       "font-jetbrains-mono"
+
+      "vlc"
     ];
   };
 
