@@ -12,6 +12,7 @@
     jq
     btop
     direnv
+    zizmor
 
     # required by yt-dlp
     ffmpeg-full
